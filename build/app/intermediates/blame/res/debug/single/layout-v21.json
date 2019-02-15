@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/cxc/Documents/flutter/flutter_wb/build/app/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/cxc/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/8d0ca619c9ef5c67f2c04364a62c71cc/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/cxc/Documents/flutter/flutter_wb/build/app/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/cxc/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/8d0ca619c9ef5c67f2c04364a62c71cc/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/cxc/Documents/flutter/flutter_wb/build/app/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/cxc/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/8d0ca619c9ef5c67f2c04364a62c71cc/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/cxc/Documents/flutter/flutter_wb/build/app/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/Users/cxc/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/8d0ca619c9ef5c67f2c04364a62c71cc/res/layout-v21/notification_action.xml"
+    }
+]

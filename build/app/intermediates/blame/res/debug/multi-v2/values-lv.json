@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/cxc/Documents/flutter/flutter_wb/build/app/intermediates/res/merged/debug/values-lv/values-lv.xml",
+            "map": [
+                {
+                    "source": "/Users/cxc/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/8d0ca619c9ef5c67f2c04364a62c71cc/res/values-lv/values-lv.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/cxc/Documents/flutter/flutter_wb/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-lv/values-lv.xml",
+            "map": [
+                {
+                    "source": "/Users/cxc/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/8d0ca619c9ef5c67f2c04364a62c71cc/res/values-lv/values-lv.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        }
+    ]
+}
