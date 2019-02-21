@@ -12,7 +12,7 @@ class NavButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-        icon: const Icon(Icons.camera_alt,color: Colors.blueGrey),
+        icon: const Icon(Icons.camera_alt,color: Colors.white70),
         tooltip: 'take photo',
         onPressed: () => action
     );
