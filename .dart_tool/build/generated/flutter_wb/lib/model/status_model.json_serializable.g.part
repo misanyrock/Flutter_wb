@@ -1,0 +1,245 @@
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+MainModel _$MainModelFromJson(Map<String, dynamic> json) {
+  return MainModel((json['statuses'] as List)
+      ?.map((e) =>
+          e == null ? null : StatusModel.fromJson(e as Map<String, dynamic>))
+      ?.toList());
+}
+
+Map<String, dynamic> _$MainModelToJson(MainModel instance) =>
+    <String, dynamic>{'statuses': instance.statuses};
+
+StatusModel _$StatusModelFromJson(Map<String, dynamic> json) {
+  return StatusModel(
+      json['id'] as int,
+      json['can_edit'] as bool,
+      json['text'] as String,
+      json['textLength'] as int,
+      json['source_type'] as int,
+      json['source'] as String,
+      json['favorited'] as bool,
+      json['pic_ids'] as List,
+      json['pic_types'] as String,
+      json['is_paid'] as bool,
+      json['mblog_vip_type'] as int,
+      json['user'] == null
+          ? null
+          : StatusUserModel.fromJson(json['user'] as Map<String, dynamic>),
+      json['reposts_count'] as int,
+      json['comments_count'] as int,
+      json['attitudes_count'] as int,
+      json['pending_approval_count'] as int,
+      json['isLongText'] as bool,
+      (json['multi_attitude'] as List)
+          ?.map((e) => e == null
+              ? null
+              : StatusAttiModel.fromJson(e as Map<String, dynamic>))
+          ?.toList(),
+      json['most_attitude_type'] as int,
+      json['pic_bg_new'] as String,
+      json['pic_bg_type'] as int,
+      json['weibo_position'] as int,
+      json['obj_ext'] as String,
+      json['page_info'] == null
+          ? null
+          : StatusPageInfoModel.fromJson(
+              json['page_info'] as Map<String, dynamic>));
+}
+
+Map<String, dynamic> _$StatusModelToJson(StatusModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'can_edit': instance.can_edit,
+      'text': instance.text,
+      'textLength': instance.textLength,
+      'source_type': instance.source_type,
+      'source': instance.source,
+      'favorited': instance.favorited,
+      'pic_ids': instance.pic_ids,
+      'pic_types': instance.pic_types,
+      'is_paid': instance.is_paid,
+      'mblog_vip_type': instance.mblog_vip_type,
+      'user': instance.user,
+      'reposts_count': instance.reposts_count,
+      'comments_count': instance.comments_count,
+      'attitudes_count': instance.attitudes_count,
+      'pending_approval_count': instance.pending_approval_count,
+      'isLongText': instance.isLongText,
+      'multi_attitude': instance.multi_attitude,
+      'most_attitude_type': instance.most_attitude_type,
+      'pic_bg_new': instance.pic_bg_new,
+      'pic_bg_type': instance.pic_bg_type,
+      'weibo_position': instance.weibo_position,
+      'obj_ext': instance.obj_ext,
+      'page_info': instance.page_info
+    };
+
+StatusUserModel _$StatusUserModelFromJson(Map<String, dynamic> json) {
+  return StatusUserModel(
+      json['id'] as int,
+      json['screen_name'] as String,
+      json['province'] as String,
+      json['city'] as String,
+      json['description'] as String,
+      json['url'] as String,
+      json['profile_image_url'] as String,
+      json['cover_image'] as String,
+      json['cover_image_phone'] as String,
+      json['gender'] as String,
+      json['followers_count'] as int,
+      json['friends_count'] as int,
+      json['pagefriends_count'] as int,
+      json['following'] as bool,
+      json['allow_all_act_msg'] as bool,
+      json['verified'] as bool,
+      json['verified_type'] as int,
+      json['remark'] as String,
+      json['avatar_large'] as String,
+      json['avatar_hd'] as String,
+      json['verified_reason'] as String,
+      json['verified_state'] as int,
+      json['verified_reason_modified'] as String,
+      json['verified_level'] as int,
+      json['verified_type_ext'] as int,
+      json['has_service_tel'] as bool,
+      json['follow_me'] as bool,
+      json['like'] as bool,
+      json['like_me'] as bool,
+      json['badge'] == null
+          ? null
+          : StatusBadgeModel.fromJson(json['badge'] as Map<String, dynamic>),
+      json['has_ability_tag'] as int,
+      json['bility_tags'] as String,
+      json['credit_score'] as int,
+      json['user_ability'] as int);
+}
+
+Map<String, dynamic> _$StatusUserModelToJson(StatusUserModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'screen_name': instance.screen_name,
+      'province': instance.province,
+      'city': instance.city,
+      'description': instance.description,
+      'url': instance.url,
+      'profile_image_url': instance.profile_image_url,
+      'cover_image': instance.cover_image,
+      'cover_image_phone': instance.cover_image_phone,
+      'gender': instance.gender,
+      'followers_count': instance.followers_count,
+      'friends_count': instance.friends_count,
+      'pagefriends_count': instance.pagefriends_count,
+      'following': instance.following,
+      'allow_all_act_msg': instance.allow_all_act_msg,
+      'verified': instance.verified,
+      'verified_type': instance.verified_type,
+      'remark': instance.remark,
+      'avatar_large': instance.avatar_large,
+      'avatar_hd': instance.avatar_hd,
+      'verified_reason': instance.verified_reason,
+      'verified_state': instance.verified_state,
+      'verified_reason_modified': instance.verified_reason_modified,
+      'verified_level': instance.verified_level,
+      'verified_type_ext': instance.verified_type_ext,
+      'has_service_tel': instance.has_service_tel,
+      'follow_me': instance.follow_me,
+      'like': instance.like,
+      'like_me': instance.like_me,
+      'badge': instance.badge,
+      'has_ability_tag': instance.has_ability_tag,
+      'bility_tags': instance.bility_tags,
+      'credit_score': instance.credit_score,
+      'user_ability': instance.user_ability
+    };
+
+StatusBadgeModel _$StatusBadgeModelFromJson(Map<String, dynamic> json) {
+  return StatusBadgeModel();
+}
+
+Map<String, dynamic> _$StatusBadgeModelToJson(StatusBadgeModel instance) =>
+    <String, dynamic>{};
+
+StatusAttiModel _$StatusAttiModelFromJson(Map<String, dynamic> json) {
+  return StatusAttiModel(json['type'] as int, json['count'] as int);
+}
+
+Map<String, dynamic> _$StatusAttiModelToJson(StatusAttiModel instance) =>
+    <String, dynamic>{'type': instance.type, 'count': instance.count};
+
+StatusPageInfoModel _$StatusPageInfoModelFromJson(Map<String, dynamic> json) {
+  return StatusPageInfoModel(
+      json['type'] as String,
+      json['page_id'] as String,
+      json['object_id'] as String,
+      json['object_type'] as String,
+      json['content1'] as String,
+      json['content2'] as String,
+      json['act_status'] as int,
+      json['media_info'] == null
+          ? null
+          : StatusMediaInfoModel.fromJson(
+              json['media_info'] as Map<String, dynamic>));
+}
+
+Map<String, dynamic> _$StatusPageInfoModelToJson(
+        StatusPageInfoModel instance) =>
+    <String, dynamic>{
+      'type': instance.type,
+      'page_id': instance.page_id,
+      'object_type': instance.object_type,
+      'object_id': instance.object_id,
+      'content1': instance.content1,
+      'content2': instance.content2,
+      'act_status': instance.act_status,
+      'media_info': instance.media_info
+    };
+
+StatusMediaInfoModel _$StatusMediaInfoModelFromJson(Map<String, dynamic> json) {
+  return StatusMediaInfoModel(
+      json['video_orientation'] as String,
+      json['name'] as String,
+      json['duration'] as int,
+      json['stream_url'] as String,
+      json['stream_url_hd'] as String,
+      json['h5_url'] as String,
+      json['mp4_sd_url'] as String,
+      json['mp4_hd_url'] as String,
+      json['h265_mp4_hd'] as String,
+      json['h265_mp4_ld'] as String,
+      json['inch_4_mp4_hd'] as String,
+      json['inch_5_5_mp4_hd'] as String,
+      json['inch_5_mp4_hd'] as String,
+      json['mp4_720p_mp4'] as String,
+      json['hevc_mp4_720p'] as String,
+      json['prefetch_size'] as int,
+      json['prefetch_type'] as int,
+      json['act_status'] as int,
+      json['next_title'] as String);
+}
+
+Map<String, dynamic> _$StatusMediaInfoModelToJson(
+        StatusMediaInfoModel instance) =>
+    <String, dynamic>{
+      'video_orientation': instance.video_orientation,
+      'name': instance.name,
+      'duration': instance.duration,
+      'stream_url': instance.stream_url,
+      'stream_url_hd': instance.stream_url_hd,
+      'h5_url': instance.h5_url,
+      'mp4_sd_url': instance.mp4_sd_url,
+      'mp4_hd_url': instance.mp4_hd_url,
+      'h265_mp4_hd': instance.h265_mp4_hd,
+      'h265_mp4_ld': instance.h265_mp4_ld,
+      'inch_4_mp4_hd': instance.inch_4_mp4_hd,
+      'inch_5_mp4_hd': instance.inch_5_mp4_hd,
+      'inch_5_5_mp4_hd': instance.inch_5_5_mp4_hd,
+      'mp4_720p_mp4': instance.mp4_720p_mp4,
+      'hevc_mp4_720p': instance.hevc_mp4_720p,
+      'prefetch_type': instance.prefetch_type,
+      'prefetch_size': instance.prefetch_size,
+      'act_status': instance.act_status,
+      'next_title': instance.next_title
+    };

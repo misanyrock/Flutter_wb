@@ -15,6 +15,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.5.1"
+  assets_audio_player:
+    dependency: "direct main"
+    description:
+      name: assets_audio_player
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   async:
     dependency: transitive
     description:
@@ -160,13 +167,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.0+1"
-  flutter_gallery_assets:
-    dependency: "direct main"
-    description:
-      name: flutter_gallery_assets
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.6"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -368,6 +368,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
+  rxdart:
+    dependency: transitive
+    description:
+      name: rxdart
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.20.0"
   shared_preferences:
     dependency: "direct main"
     description:

@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'oauth_page.dart';
-import 'package:flutter/cupertino.dart';
 
 class SplashPage extends StatefulWidget {
 
@@ -27,12 +26,6 @@ class _SplashPageState extends State<SplashPage> {
 
   void handleImageTap() {
     Navigator.of(context).pushNamed(OauthPage.routeName);
-//    Navigator.of(context).push(
-//      CupertinoPageRoute(
-//        fullscreenDialog: true,
-//        builder: (context) => OauthPage()
-//      )
-//    );
   }
 
 

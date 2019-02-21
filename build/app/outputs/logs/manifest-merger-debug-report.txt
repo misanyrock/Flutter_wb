@@ -5,6 +5,7 @@ INJECTED from /Users/cxc/Documents/flutter/flutter_wb/android/app/src/main/Andro
 INJECTED from /Users/cxc/Documents/flutter/flutter_wb/android/app/src/main/AndroidManifest.xml:1:1-39:12
 INJECTED from /Users/cxc/Documents/flutter/flutter_wb/android/app/src/main/AndroidManifest.xml:1:1-39:12
 MERGED from [:shared_preferences] /Users/cxc/Documents/flutter/flutter_wb/build/shared_preferences/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:2:1-7:12
+MERGED from [:assets_audio_player] /Users/cxc/Documents/flutter/flutter_wb/build/assets_audio_player/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:2:1-7:12
 MERGED from [:url_launcher] /Users/cxc/Documents/flutter/flutter_wb/build/url_launcher/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:2:1-14:12
 MERGED from [:image_picker] /Users/cxc/Documents/flutter/flutter_wb/build/image_picker/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:2:1-23:12
 MERGED from [:path_provider] /Users/cxc/Documents/flutter/flutter_wb/build/path_provider/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:2:1-7:12
@@ -109,6 +110,8 @@ INJECTED from /Users/cxc/Documents/flutter/flutter_wb/android/app/src/main/Andro
 INJECTED from /Users/cxc/Documents/flutter/flutter_wb/android/app/src/main/AndroidManifest.xml
 MERGED from [:shared_preferences] /Users/cxc/Documents/flutter/flutter_wb/build/shared_preferences/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences] /Users/cxc/Documents/flutter/flutter_wb/build/shared_preferences/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [:assets_audio_player] /Users/cxc/Documents/flutter/flutter_wb/build/assets_audio_player/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [:assets_audio_player] /Users/cxc/Documents/flutter/flutter_wb/build/assets_audio_player/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:5:5-44
 MERGED from [:url_launcher] /Users/cxc/Documents/flutter/flutter_wb/build/url_launcher/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:5:5-44
 MERGED from [:url_launcher] /Users/cxc/Documents/flutter/flutter_wb/build/url_launcher/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:5:5-44
 MERGED from [:image_picker] /Users/cxc/Documents/flutter/flutter_wb/build/image_picker/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:5:5-44

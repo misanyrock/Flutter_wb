@@ -1,4 +1,6 @@
 PODS:
+  - assets_audio_player (0.0.1):
+    - Flutter
   - Flutter (1.0.0)
   - flutter_webview_plugin (0.0.1):
     - Flutter
@@ -12,6 +14,7 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
+  - assets_audio_player (from `.symlinks/plugins/assets_audio_player/ios`)
   - Flutter (from `.symlinks/flutter/ios`)
   - flutter_webview_plugin (from `.symlinks/plugins/flutter_webview_plugin/ios`)
   - image_picker (from `.symlinks/plugins/image_picker/ios`)
@@ -20,6 +23,8 @@ DEPENDENCIES:
   - url_launcher (from `.symlinks/plugins/url_launcher/ios`)
 
 EXTERNAL SOURCES:
+  assets_audio_player:
+    :path: ".symlinks/plugins/assets_audio_player/ios"
   Flutter:
     :path: ".symlinks/flutter/ios"
   flutter_webview_plugin:
@@ -34,6 +39,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/url_launcher/ios"
 
 SPEC CHECKSUMS:
+  assets_audio_player: 1181479dff330605fd2183e89cf11659fd92ebb5
   Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
   flutter_webview_plugin: 0b491d31c34ab5c86a71c9f1a57ac000dd1b75e9
   image_picker: ee00aab0487cedc80a304085219503cc6d0f2e22

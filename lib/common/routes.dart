@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_wb/pages/splash.dart';
 import 'package:flutter_wb/pages/oauth_page.dart';
+import 'package:flutter_wb/pages/main_page.dart';
+
 
 class PageItem {
 
@@ -24,7 +26,6 @@ class PageItem {
     // TODO: implement toString
     return '$runtimeType($title $routeName)';
   }
-
 }
 
 List<PageItem> _buildPageItems() {
@@ -39,6 +40,10 @@ List<PageItem> _buildPageItems() {
         routeName: OauthPage.routeName,
         buildRoute: (BuildContext context) => OauthPage(),
         title: '微博认证'
+    ),
+    PageItem(routeName: MainPage.routeName,
+        buildRoute: (BuildContext context) => MainPage(),
+        title: '首页'
     ),
   ];
 
@@ -58,6 +63,19 @@ List<PageItem> _buildPageItems() {
 
 
 final List<PageItem> kAllPages = _buildPageItems();
+
+enum RouteType {
+  home,
+  splash,
+}
+
+final Map<RouteType,String> routeMap = {
+  RouteType.home : MainPage.routeName,
+  RouteType.splash : SplashPage.routeName,
+};
+
+
+
 
 
 

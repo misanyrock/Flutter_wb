@@ -5,6 +5,8 @@ import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:flutter_wb/common/common.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:flutter_wb/common/routes.dart';
+import 'package:flutter/cupertino.dart';
 
 class OauthPage extends StatefulWidget {
 
@@ -16,6 +18,7 @@ class OauthPage extends StatefulWidget {
 }
 
 class _OauthPageState extends State<OauthPage> {
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -43,8 +46,10 @@ class _OauthPageState extends State<OauthPage> {
 
     final webviewPligin = new FlutterWebviewPlugin();
     webviewPligin.onUrlChanged.listen((String url) {
-      String code = url.replaceFirst('https://api.weibo.com/oauth2/default.html?code=', '');
-      getAccessToken(code);
+      if (url.startsWith('https://api.weibo.com/oauth2/default.html?code=')){
+        String code = url.replaceFirst('https://api.weibo.com/oauth2/default.html?code=', '');
+        getAccessToken(code);
+      }
     });
 
   }
@@ -55,6 +60,18 @@ class _OauthPageState extends State<OauthPage> {
     AccessModel accessModel = AccessModel.fromJson(json.decode(response.body));
     kAccessToken = accessModel.access_token;
 
+    if (response.statusCode == 200) {
+        //push
+        Navigator.of(context).popAndPushNamed(routeMap[RouteType.home]);
+    }else{
+        Navigator.of(context).pop();
+    }
+
+    // Navigator.of(context).pushNamed(routeMap[RouteType.home]);
+
+    //    Navigator.of(context).push(
+    //          CupertinoPageRoute(fullscreenDialog: true, builder: (context) => MainPage())
+    //    );
   }
 
 }

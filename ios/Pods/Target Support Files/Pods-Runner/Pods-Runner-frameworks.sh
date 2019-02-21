@@ -144,6 +144,7 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${PODS_ROOT}/../.symlinks/flutter/ios/Flutter.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/assets_audio_player/assets_audio_player.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/flutter_webview_plugin/flutter_webview_plugin.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/image_picker/image_picker.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/path_provider/path_provider.framework"
@@ -152,6 +153,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${PODS_ROOT}/../.symlinks/flutter/ios/Flutter.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/assets_audio_player/assets_audio_player.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/flutter_webview_plugin/flutter_webview_plugin.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/image_picker/image_picker.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/path_provider/path_provider.framework"
@@ -160,6 +162,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Profile" ]]; then
   install_framework "${PODS_ROOT}/../.symlinks/flutter/ios/Flutter.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/assets_audio_player/assets_audio_player.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/flutter_webview_plugin/flutter_webview_plugin.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/image_picker/image_picker.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/path_provider/path_provider.framework"
