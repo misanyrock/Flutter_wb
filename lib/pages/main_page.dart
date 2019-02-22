@@ -8,6 +8,7 @@ import 'dart:async';
 import 'package:assets_audio_player/assets_audio_player.dart';
 import '../widgets/main_back.dart';
 import 'dart:math' as math;
+import 'package:cached_network_image/cached_network_image.dart';
 
 class MainPage extends StatefulWidget {
 
@@ -18,7 +19,7 @@ class MainPage extends StatefulWidget {
 
 }
 
-class MainPageState extends State<MainPage> with SingleTickerProviderStateMixin{
+class MainPageState extends State<MainPage> with SingleTickerProviderStateMixin , TickerProviderStateMixin{
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey = GlobalKey<RefreshIndicatorState>();
@@ -29,8 +30,8 @@ class MainPageState extends State<MainPage> with SingleTickerProviderStateMixin{
 
   List<StatusModel> models = [];
 
+  //net
   bool isLoadSuccess = false;
-
   var _errorMsg = '';
 
   @override
@@ -42,6 +43,7 @@ class MainPageState extends State<MainPage> with SingleTickerProviderStateMixin{
       value: 1.0,
       vsync: this,
     );
+    
     getData();
   }
 
@@ -54,6 +56,7 @@ class MainPageState extends State<MainPage> with SingleTickerProviderStateMixin{
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
@@ -61,8 +64,6 @@ class MainPageState extends State<MainPage> with SingleTickerProviderStateMixin{
           listenable: _controller.view,
         ),
         actions: <Widget>[
-          NavButton(),
-          AddButton(),
           IconButton(
             onPressed: _toggleBackdropPanelVisibility,
             icon: AnimatedIcon(
@@ -71,16 +72,18 @@ class MainPageState extends State<MainPage> with SingleTickerProviderStateMixin{
               progress: _controller.view,
             ),
           ),
+          NavButton(),
+          AddButton(),
         ],
       ),
-      body: LayoutBuilder(
-        builder: _buildStack,
-      ),
+      body: LayoutBuilder(builder: _buildStack),
+      //bottomNavigationBar: botNavBar,
     );
   }
 
   void getData() async {
       String url = urls[URLType.home]+'?access_token=' + kAccessToken + '&?feature=' + '${_category.feature}';
+      print(url);
       http.Response response = await http.get(url);
       MainModel mainModel = MainModel.fromJson(json.decode(response.body));
       setState(() {
@@ -149,7 +152,45 @@ class MainPageState extends State<MainPage> with SingleTickerProviderStateMixin{
   Widget _getRow(int i) {
     return Padding(
       padding: EdgeInsets.all(10.0),
-      child: Text(models[i].text ?? '')
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                width: 50,
+                height: 50,
+                child: CircleAvatar(
+                  backgroundImage: new CachedNetworkImageProvider(models[i].user.avatar_large),
+                )
+              ),
+              SizedBox.fromSize(size: Size(8, 0),),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 100,
+                    child: Text(models[i].user.screen_name ?? ''),
+                  ),
+                  SizedBox.fromSize(size: Size(0, 4),),
+                  Container(
+                    width: 250,
+                    child: Text((models[i].user.description ?? '').length <= 30 ? (models[i].user.description ?? '') : models[i].user.description.substring(0,28),
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 12,
+                    ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          SizedBox.fromSize(size: Size(0, 8),),
+          Text(models[i].text ?? ''),
+        ],
+      ),
       );
   }
 
@@ -167,7 +208,7 @@ class MainPageState extends State<MainPage> with SingleTickerProviderStateMixin{
     setState(() {
       _category = category;
       _controller.fling(velocity: 2.0);
-      models = [];
+      models.clear();
       getData();
     });
   }
@@ -282,6 +323,5 @@ class MainPageState extends State<MainPage> with SingleTickerProviderStateMixin{
       ),
     );
   }
-
 
 }
