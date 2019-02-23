@@ -46,7 +46,8 @@ StatusModel _$StatusModelFromJson(Map<String, dynamic> json) {
       json['page_info'] == null
           ? null
           : StatusPageInfoModel.fromJson(
-              json['page_info'] as Map<String, dynamic>));
+              json['page_info'] as Map<String, dynamic>),
+      json['timestamp_text'] as String);
 }
 
 Map<String, dynamic> _$StatusModelToJson(StatusModel instance) =>
@@ -74,7 +75,8 @@ Map<String, dynamic> _$StatusModelToJson(StatusModel instance) =>
       'pic_bg_type': instance.pic_bg_type,
       'weibo_position': instance.weibo_position,
       'obj_ext': instance.obj_ext,
-      'page_info': instance.page_info
+      'page_info': instance.page_info,
+      'timestamp_text': instance.timestamp_text
     };
 
 StatusUserModel _$StatusUserModelFromJson(Map<String, dynamic> json) {

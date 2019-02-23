@@ -65,11 +65,13 @@ class StatusModel {
 
   StatusPageInfoModel page_info;
 
+  String timestamp_text;
+
   StatusModel(this.id,this.can_edit,this.text,this.textLength,this.source_type,this.source,
       this.favorited,this.pic_ids,this.pic_types,this.is_paid,this.mblog_vip_type,
       this.user,this.reposts_count,this.comments_count,this.attitudes_count,this.pending_approval_count,
       this.isLongText,this.multi_attitude,this.most_attitude_type,this.pic_bg_new,this.pic_bg_type,
-      this.weibo_position,this.obj_ext,this.page_info);
+      this.weibo_position,this.obj_ext,this.page_info,this.timestamp_text);
 
   //反序列化
   factory StatusModel.fromJson(Map<String,dynamic> json) => _$StatusModelFromJson(json);

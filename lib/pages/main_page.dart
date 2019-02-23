@@ -22,7 +22,6 @@ class MainPage extends StatefulWidget {
 class MainPageState extends State<MainPage> with SingleTickerProviderStateMixin , TickerProviderStateMixin{
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey = GlobalKey<RefreshIndicatorState>();
   final GlobalKey _backdropKey = GlobalKey(debugLabel: 'Backdrop');
 
   AnimationController _controller;
@@ -58,6 +57,7 @@ class MainPageState extends State<MainPage> with SingleTickerProviderStateMixin 
   Widget build(BuildContext context) {
     
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         elevation: 0.0,
         title: BackdropTitle(
@@ -99,25 +99,19 @@ class MainPageState extends State<MainPage> with SingleTickerProviderStateMixin 
   Future<void> _handleRefresh() async {
     final Completer<void> completer = Completer<void>();
     String url = urls[URLType.home]+'?access_token=' + kAccessToken + '&?since_id=' + '${models.first.id}' + '&?feature=' + '${_category.feature}';
+    print(url);
     http.Response response = await http.get(url);
     MainModel mainModel = MainModel.fromJson(json.decode(response.body));
     int count = mainModel.statuses.length ?? 0;
-    setState(() {
-      if ( count > 0) {
-        models.insertAll(0, mainModel.statuses);
-      }
-    });
     completer.complete();
     playLocal();
+    setState(() {
+      if ( count > 0) { models.insertAll(0, mainModel.statuses);}
+    });
     return completer.future.then<void>((_){
       _scaffoldKey.currentState?.showSnackBar(SnackBar(
-          content: Text('更新了' + '${count}' + '条微博'),
-          action: SnackBarAction(
-              label: 'Retry',
-              onPressed: () {
-                _refreshIndicatorKey.currentState.show();
-              }
-          )
+        content: Text('更新了' + '${count}' + '条微博'),
+        backgroundColor: Colors.orange,
       ));
     });
   }
@@ -189,6 +183,29 @@ class MainPageState extends State<MainPage> with SingleTickerProviderStateMixin 
           ),
           SizedBox.fromSize(size: Size(0, 8),),
           Text(models[i].text ?? ''),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              FlatButton.icon(
+                onPressed: (){},
+                icon: Icon(Icons.add_to_home_screen,color: Colors.grey,),
+                label: Text(models[i].reposts_count > 0 ? '${models[i].reposts_count}' : '转发' ),
+                textColor: Colors.grey,
+              ),
+              FlatButton.icon(
+                onPressed: (){},
+                icon: Icon(Icons.message,color: Colors.grey,),
+                label: Text( models[i].comments_count > 0 ? '${models[i].comments_count}' : '评论'),
+                textColor: Colors.grey,
+              ),
+              FlatButton.icon(
+                onPressed: (){},
+                icon: Icon(Icons.thumb_up,color: Colors.grey,),
+                label: Text(models[i].attitudes_count > 0 ? '${models[i].attitudes_count}' : '赞'),
+                textColor: Colors.grey,
+              ),
+            ],
+          ),
         ],
       ),
       );
