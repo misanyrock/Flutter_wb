@@ -36,9 +36,11 @@ class _MainContentWidgetState extends State<MainContentWidget> {
       imageCount = statusModel.pic_urls.length;
       if (imageCount > 0) return _picsWidget();
     }
-    if (statusModel.text.contains("# http://")) {
-      List<String> urls =  statusModel.text.split('#');
-      String videoUrl = urls.last;
+
+    if (statusModel.text.contains("http://")) {
+      List<String> urls =  statusModel.text.split('http');
+      String videoUrl = 'http' + urls.last;
+      print(videoUrl);
       return _videoWidget(videoUrl);
     }
 
