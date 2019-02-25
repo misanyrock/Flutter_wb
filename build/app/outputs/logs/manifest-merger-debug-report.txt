@@ -4,12 +4,17 @@ ADDED from /Users/cxc/Documents/flutter/flutter_wb/android/app/src/main/AndroidM
 INJECTED from /Users/cxc/Documents/flutter/flutter_wb/android/app/src/main/AndroidManifest.xml:1:1-39:12
 INJECTED from /Users/cxc/Documents/flutter/flutter_wb/android/app/src/main/AndroidManifest.xml:1:1-39:12
 INJECTED from /Users/cxc/Documents/flutter/flutter_wb/android/app/src/main/AndroidManifest.xml:1:1-39:12
+MERGED from [:video_player] /Users/cxc/Documents/flutter/flutter_wb/build/video_player/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:2:1-7:12
 MERGED from [:shared_preferences] /Users/cxc/Documents/flutter/flutter_wb/build/shared_preferences/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:2:1-7:12
 MERGED from [:assets_audio_player] /Users/cxc/Documents/flutter/flutter_wb/build/assets_audio_player/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:2:1-7:12
 MERGED from [:url_launcher] /Users/cxc/Documents/flutter/flutter_wb/build/url_launcher/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:2:1-14:12
 MERGED from [:image_picker] /Users/cxc/Documents/flutter/flutter_wb/build/image_picker/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:2:1-23:12
 MERGED from [:path_provider] /Users/cxc/Documents/flutter/flutter_wb/build/path_provider/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:2:1-7:12
 MERGED from [:flutter_webview_plugin] /Users/cxc/Documents/flutter/flutter_wb/build/flutter_webview_plugin/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:2:1-5:12
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.8.0] /Users/cxc/.gradle/caches/transforms-1/files-1.1/exoplayer-hls-2.8.0.aar/5c30ceec84a384e79b1d3c87e945e247/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.8.0] /Users/cxc/.gradle/caches/transforms-1/files-1.1/exoplayer-dash-2.8.0.aar/9f465fa7d6f0b4071504390decb2ded1/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.8.0] /Users/cxc/.gradle/caches/transforms-1/files-1.1/exoplayer-smoothstreaming-2.8.0.aar/c3496d8b75ea5eddc1165e97bb748666/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.8.0] /Users/cxc/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.8.0.aar/5d06c84352290942d66555d7cc69afae/AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/cxc/.gradle/caches/transforms-1/files-1.1/legacy-support-v4-1.0.0.aar/5d25d68554e3373216fb550cb3ddc2f2/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.media:media:1.0.0] /Users/cxc/.gradle/caches/transforms-1/files-1.1/media-1.0.0.aar/8ad8b8e48d09f46b84717fec051fe140/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.fragment:fragment:1.0.0] /Users/cxc/.gradle/caches/transforms-1/files-1.1/fragment-1.0.0.aar/fa955cfaf49603e768aaa3c1a2b39db4/AndroidManifest.xml:17:1-22:12
@@ -108,6 +113,8 @@ uses-sdk
 INJECTED from /Users/cxc/Documents/flutter/flutter_wb/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/cxc/Documents/flutter/flutter_wb/android/app/src/main/AndroidManifest.xml
 INJECTED from /Users/cxc/Documents/flutter/flutter_wb/android/app/src/main/AndroidManifest.xml
+MERGED from [:video_player] /Users/cxc/Documents/flutter/flutter_wb/build/video_player/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [:video_player] /Users/cxc/Documents/flutter/flutter_wb/build/video_player/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences] /Users/cxc/Documents/flutter/flutter_wb/build/shared_preferences/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences] /Users/cxc/Documents/flutter/flutter_wb/build/shared_preferences/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:5:5-44
 MERGED from [:assets_audio_player] /Users/cxc/Documents/flutter/flutter_wb/build/assets_audio_player/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:5:5-44
@@ -118,6 +125,14 @@ MERGED from [:image_picker] /Users/cxc/Documents/flutter/flutter_wb/build/image_
 MERGED from [:image_picker] /Users/cxc/Documents/flutter/flutter_wb/build/image_picker/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:5:5-44
 MERGED from [:path_provider] /Users/cxc/Documents/flutter/flutter_wb/build/path_provider/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:5:5-44
 MERGED from [:path_provider] /Users/cxc/Documents/flutter/flutter_wb/build/path_provider/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.8.0] /Users/cxc/.gradle/caches/transforms-1/files-1.1/exoplayer-hls-2.8.0.aar/5c30ceec84a384e79b1d3c87e945e247/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.8.0] /Users/cxc/.gradle/caches/transforms-1/files-1.1/exoplayer-hls-2.8.0.aar/5c30ceec84a384e79b1d3c87e945e247/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.8.0] /Users/cxc/.gradle/caches/transforms-1/files-1.1/exoplayer-dash-2.8.0.aar/9f465fa7d6f0b4071504390decb2ded1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.8.0] /Users/cxc/.gradle/caches/transforms-1/files-1.1/exoplayer-dash-2.8.0.aar/9f465fa7d6f0b4071504390decb2ded1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.8.0] /Users/cxc/.gradle/caches/transforms-1/files-1.1/exoplayer-smoothstreaming-2.8.0.aar/c3496d8b75ea5eddc1165e97bb748666/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.8.0] /Users/cxc/.gradle/caches/transforms-1/files-1.1/exoplayer-smoothstreaming-2.8.0.aar/c3496d8b75ea5eddc1165e97bb748666/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.8.0] /Users/cxc/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.8.0.aar/5d06c84352290942d66555d7cc69afae/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.8.0] /Users/cxc/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.8.0.aar/5d06c84352290942d66555d7cc69afae/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/cxc/.gradle/caches/transforms-1/files-1.1/legacy-support-v4-1.0.0.aar/5d25d68554e3373216fb550cb3ddc2f2/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/cxc/.gradle/caches/transforms-1/files-1.1/legacy-support-v4-1.0.0.aar/5d25d68554e3373216fb550cb3ddc2f2/AndroidManifest.xml:20:5-44
 MERGED from [androidx.media:media:1.0.0] /Users/cxc/.gradle/caches/transforms-1/files-1.1/media-1.0.0.aar/8ad8b8e48d09f46b84717fec051fe140/AndroidManifest.xml:20:5-44
@@ -216,3 +231,7 @@ ADDED from [:image_picker] /Users/cxc/Documents/flutter/flutter_wb/build/image_p
 		ADDED from [:image_picker] /Users/cxc/Documents/flutter/flutter_wb/build/image_picker/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:18:17-67
 uses-permission#android.permission.READ_PHONE_STATE
 IMPLIED from /Users/cxc/Documents/flutter/flutter_wb/android/app/src/main/AndroidManifest.xml:1:1-39:12 reason: com.flutter_webview_plugin has a targetSdkVersion < 4
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.android.exoplayer:exoplayer-core:2.8.0] /Users/cxc/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.8.0.aar/5d06c84352290942d66555d7cc69afae/AndroidManifest.xml:24:5-79
+	android:name
+		ADDED from [com.google.android.exoplayer:exoplayer-core:2.8.0] /Users/cxc/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.8.0.aar/5d06c84352290942d66555d7cc69afae/AndroidManifest.xml:24:22-76
