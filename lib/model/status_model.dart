@@ -6,7 +6,11 @@ part 'status_model.g.dart';
 class MainModel {
   List<StatusModel> statuses;
 
-  MainModel(this.statuses);
+  int original_num;
+  int num;
+  String remind_text; //更新了15条微博
+
+  MainModel(this.statuses,this.remind_text,this.num,this.original_num);
 
   //反序列化
   factory MainModel.fromJson(Map<String,dynamic> json) => _$MainModelFromJson(json);
@@ -18,58 +22,36 @@ class MainModel {
 class StatusModel {
 
   int id;
-
   bool can_edit;
-
   String text;
-
   int textLength;
-
   int source_type; //weibo type
-
   String source;
-
   bool favorited;
-
-  List pic_ids;
-
   String pic_types;
-
   bool is_paid;
-
   int mblog_vip_type;
-
   StatusUserModel user;
-
+  List<PictureInfoModel> pic_urls;
+  RetweetedStatusModel retweeted_status;
   int reposts_count; //转发数
-
   int comments_count; //评论数
-
   int attitudes_count; //点赞数
-
   int pending_approval_count;
-
   bool isLongText;
-
   List<StatusAttiModel> multi_attitude;
-
   int most_attitude_type;
-
-  String pic_bg_new;
-
+  String pic_bg_new; //签名后面图片
   int pic_bg_type;
-
   int weibo_position;
-
   String obj_ext; //"791万次观看"
-
   StatusPageInfoModel page_info;
-
   String timestamp_text;
 
   StatusModel(this.id,this.can_edit,this.text,this.textLength,this.source_type,this.source,
-      this.favorited,this.pic_ids,this.pic_types,this.is_paid,this.mblog_vip_type,
-      this.user,this.reposts_count,this.comments_count,this.attitudes_count,this.pending_approval_count,
+      this.favorited,this.pic_types,this.is_paid,this.mblog_vip_type,
+      this.user,this.pic_urls,this.retweeted_status,this.reposts_count,this.comments_count,
+      this.attitudes_count,this.pending_approval_count,
       this.isLongText,this.multi_attitude,this.most_attitude_type,this.pic_bg_new,this.pic_bg_type,
       this.weibo_position,this.obj_ext,this.page_info,this.timestamp_text);
 
@@ -219,4 +201,58 @@ class StatusMediaInfoModel {
   Map<String,dynamic> toJson() => _$StatusMediaInfoModelToJson(this);
 
 }
+
+@JsonSerializable()
+class RetweetedStatusModel {
+
+  int id;
+  bool can_edit;
+  String text;
+  int textLength;
+  int source_type; //weibo type  2?转发 1?原创
+  String source;
+  bool favorited;
+  List<PictureInfoModel> pic_urls;
+  StatusUserModel user;
+
+  RetweetedStatusModel(this.id,this.can_edit,this.text,this.textLength,this.source_type,this.source,
+      this.favorited,this.user,this.pic_urls);
+
+  //反序列化
+  factory RetweetedStatusModel.fromJson(Map<String,dynamic> json) => _$RetweetedStatusModelFromJson(json);
+
+  //序列化
+  Map<String,dynamic> toJson() => _$RetweetedStatusModelToJson(this);
+}
+
+@JsonSerializable()
+class PictureInfoModel {
+
+  String thumbnail;
+  String thumbnail_pic;
+  String bmiddle;
+  String middleplus;
+  String large;
+  String original;
+  String largest;
+
+  String object_id;
+  String pic_id;
+  String type;
+  int photo_tag;
+  int pic_status;
+
+  PictureInfoModel(this.thumbnail,this.bmiddle,this.middleplus,this.large,this.original,this.largest,
+      this.object_id,this.pic_id,this.type,this.photo_tag,this.pic_status,this.thumbnail_pic);
+
+  //反序列化
+  factory PictureInfoModel.fromJson(Map<String,dynamic> json) => _$PictureInfoModelFromJson(json);
+
+  //序列化
+  Map<String,dynamic> toJson() => _$PictureInfoModelToJson(this);
+
+}
+
+
+
 

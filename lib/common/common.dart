@@ -1,5 +1,4 @@
 
-
 // for oauth2.0
 const String APP_KEY = '1561262668';
 const String APP_SECRET = 'ff7da65c3ba73caafa1607358edf9792';
@@ -18,6 +17,7 @@ const Map<URLType,String> urls = {
 
 // for app
 const String kWBAssetsPackage = 'assets/image';
+
 
 
 

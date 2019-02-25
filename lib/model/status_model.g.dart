@@ -7,14 +7,23 @@ part of 'status_model.dart';
 // **************************************************************************
 
 MainModel _$MainModelFromJson(Map<String, dynamic> json) {
-  return MainModel((json['statuses'] as List)
-      ?.map((e) =>
-          e == null ? null : StatusModel.fromJson(e as Map<String, dynamic>))
-      ?.toList());
+  return MainModel(
+      (json['statuses'] as List)
+          ?.map((e) => e == null
+              ? null
+              : StatusModel.fromJson(e as Map<String, dynamic>))
+          ?.toList(),
+      json['remind_text'] as String,
+      json['num'] as int,
+      json['original_num'] as int);
 }
 
-Map<String, dynamic> _$MainModelToJson(MainModel instance) =>
-    <String, dynamic>{'statuses': instance.statuses};
+Map<String, dynamic> _$MainModelToJson(MainModel instance) => <String, dynamic>{
+      'statuses': instance.statuses,
+      'original_num': instance.original_num,
+      'num': instance.num,
+      'remind_text': instance.remind_text
+    };
 
 StatusModel _$StatusModelFromJson(Map<String, dynamic> json) {
   return StatusModel(
@@ -25,13 +34,21 @@ StatusModel _$StatusModelFromJson(Map<String, dynamic> json) {
       json['source_type'] as int,
       json['source'] as String,
       json['favorited'] as bool,
-      json['pic_ids'] as List,
       json['pic_types'] as String,
       json['is_paid'] as bool,
       json['mblog_vip_type'] as int,
       json['user'] == null
           ? null
           : StatusUserModel.fromJson(json['user'] as Map<String, dynamic>),
+      (json['pic_urls'] as List)
+          ?.map((e) => e == null
+              ? null
+              : PictureInfoModel.fromJson(e as Map<String, dynamic>))
+          ?.toList(),
+      json['retweeted_status'] == null
+          ? null
+          : RetweetedStatusModel.fromJson(
+              json['retweeted_status'] as Map<String, dynamic>),
       json['reposts_count'] as int,
       json['comments_count'] as int,
       json['attitudes_count'] as int,
@@ -63,11 +80,12 @@ Map<String, dynamic> _$StatusModelToJson(StatusModel instance) =>
       'source_type': instance.source_type,
       'source': instance.source,
       'favorited': instance.favorited,
-      'pic_ids': instance.pic_ids,
       'pic_types': instance.pic_types,
       'is_paid': instance.is_paid,
       'mblog_vip_type': instance.mblog_vip_type,
       'user': instance.user,
+      'pic_urls': instance.pic_urls,
+      'retweeted_status': instance.retweeted_status,
       'reposts_count': instance.reposts_count,
       'comments_count': instance.comments_count,
       'attitudes_count': instance.attitudes_count,
@@ -248,4 +266,69 @@ Map<String, dynamic> _$StatusMediaInfoModelToJson(
       'prefetch_size': instance.prefetch_size,
       'act_status': instance.act_status,
       'next_title': instance.next_title
+    };
+
+RetweetedStatusModel _$RetweetedStatusModelFromJson(Map<String, dynamic> json) {
+  return RetweetedStatusModel(
+      json['id'] as int,
+      json['can_edit'] as bool,
+      json['text'] as String,
+      json['textLength'] as int,
+      json['source_type'] as int,
+      json['source'] as String,
+      json['favorited'] as bool,
+      json['user'] == null
+          ? null
+          : StatusUserModel.fromJson(json['user'] as Map<String, dynamic>),
+      (json['pic_urls'] as List)
+          ?.map((e) => e == null
+              ? null
+              : PictureInfoModel.fromJson(e as Map<String, dynamic>))
+          ?.toList());
+}
+
+Map<String, dynamic> _$RetweetedStatusModelToJson(
+        RetweetedStatusModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'can_edit': instance.can_edit,
+      'text': instance.text,
+      'textLength': instance.textLength,
+      'source_type': instance.source_type,
+      'source': instance.source,
+      'favorited': instance.favorited,
+      'pic_urls': instance.pic_urls,
+      'user': instance.user
+    };
+
+PictureInfoModel _$PictureInfoModelFromJson(Map<String, dynamic> json) {
+  return PictureInfoModel(
+      json['thumbnail'] as String,
+      json['bmiddle'] as String,
+      json['middleplus'] as String,
+      json['large'] as String,
+      json['original'] as String,
+      json['largest'] as String,
+      json['object_id'] as String,
+      json['pic_id'] as String,
+      json['type'] as String,
+      json['photo_tag'] as int,
+      json['pic_status'] as int,
+      json['thumbnail_pic'] as String);
+}
+
+Map<String, dynamic> _$PictureInfoModelToJson(PictureInfoModel instance) =>
+    <String, dynamic>{
+      'thumbnail': instance.thumbnail,
+      'thumbnail_pic': instance.thumbnail_pic,
+      'bmiddle': instance.bmiddle,
+      'middleplus': instance.middleplus,
+      'large': instance.large,
+      'original': instance.original,
+      'largest': instance.largest,
+      'object_id': instance.object_id,
+      'pic_id': instance.pic_id,
+      'type': instance.type,
+      'photo_tag': instance.photo_tag,
+      'pic_status': instance.pic_status
     };

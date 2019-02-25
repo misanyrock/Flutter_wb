@@ -9,6 +9,7 @@ import 'package:assets_audio_player/assets_audio_player.dart';
 import '../widgets/main_back.dart';
 import 'dart:math' as math;
 import 'package:cached_network_image/cached_network_image.dart';
+import '../widgets/main_content_widget.dart';
 
 class MainPage extends StatefulWidget {
 
@@ -144,6 +145,7 @@ class MainPageState extends State<MainPage> with SingleTickerProviderStateMixin 
       });
 
   Widget _getRow(int i) {
+    //print(models[i].pic_ids);
     return Padding(
       padding: EdgeInsets.all(10.0),
       child: Column(
@@ -183,6 +185,8 @@ class MainPageState extends State<MainPage> with SingleTickerProviderStateMixin 
           ),
           SizedBox.fromSize(size: Size(0, 8),),
           Text(models[i].text ?? ''),
+          SizedBox.fromSize(size: Size(0, 8),),
+          MainContentWidget(models[i]),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
@@ -216,6 +220,8 @@ class MainPageState extends State<MainPage> with SingleTickerProviderStateMixin 
     assetsAudioPlayer.open(AssetsAudio(asset: 'msgcome.mp3',folder: 'assets/sound/'));
     assetsAudioPlayer.play();
   }
+
+
 
 
   /// for Backdrop
