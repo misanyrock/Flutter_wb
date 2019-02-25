@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../model/status_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:video_player/video_player.dart';
-
+import 'video_player.dart';
 
 typedef PictureTapCallback = void Function(int index,StatusModel model);
 const double _kMinFlingVelocity = 800.0;
@@ -28,12 +28,54 @@ class _MainContentWidgetState extends State<MainContentWidget> {
   Widget build(BuildContext context) {
     // TODO: implement build
 
+    if (statusModel.retweeted_status != null) {
+      return _retweetedWidget(statusModel.retweeted_status);
+    }
+
     if (statusModel.pic_urls != null) {
       imageCount = statusModel.pic_urls.length;
       if (imageCount > 0) return _picsWidget();
     }
+    if (statusModel.text.contains("# http://")) {
+      List<String> urls =  statusModel.text.split('#');
+      String videoUrl = urls.last;
+      return _videoWidget(videoUrl);
+    }
 
     return Text('placehold');
+  }
+
+  Widget _retweetedWidget(RetweetedStatusModel model) {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      color: Colors.black12,
+      child: Padding(padding: EdgeInsets.fromLTRB(0, 8, 0, 8),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text('@' + model.user.screen_name + ':' + model.text),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _videoWidget(String url) {
+    final Size screenSize = MediaQuery.of(context).size;
+    double height = 150;
+    VideoPlayerController controller = VideoPlayerController.network(url);
+    return Container(
+      width: screenSize.width,
+      height: height,
+      child: AspectRatio(
+        aspectRatio: 3 / 2,
+        child: Hero(
+          tag: controller,
+          child: VideoPlayerLoading(controller),
+        ),
+      ),
+    );
+
   }
 
   Widget _picsWidget() {
