@@ -3,6 +3,7 @@ import '../model/status_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:video_player/video_player.dart';
 import 'video_player.dart';
+import 'dart:async';
 
 typedef PictureTapCallback = void Function(int index,StatusModel model);
 const double _kMinFlingVelocity = 800.0;
@@ -23,6 +24,10 @@ class _MainContentWidgetState extends State<MainContentWidget> {
   final StatusModel statusModel;
 
   var imageCount = 0;
+  VideoPlayerController controller;
+
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+  final Completer<void> connectedCompleter = Completer<void>();
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +45,6 @@ class _MainContentWidgetState extends State<MainContentWidget> {
     if (statusModel.text.contains("http://")) {
       List<String> urls =  statusModel.text.split('http');
       String videoUrl = 'http' + urls.last;
-      print(videoUrl);
       return _videoWidget(videoUrl);
     }
 
@@ -62,22 +66,55 @@ class _MainContentWidgetState extends State<MainContentWidget> {
     );
   }
 
-  Widget _videoWidget(String url) {
-    final Size screenSize = MediaQuery.of(context).size;
-    double height = 150;
-    VideoPlayerController controller = VideoPlayerController.network(url);
-    return Container(
-      width: screenSize.width,
-      height: height,
-      child: AspectRatio(
-        aspectRatio: 3 / 2,
-        child: Hero(
-          tag: controller,
-          child: VideoPlayerLoading(controller),
-        ),
-      ),
-    );
 
+  Future<void> initController(VideoPlayerController controller) async {
+    controller.setLooping(true);
+    controller.setVolume(0.0);
+    controller.play();
+    await connectedCompleter.future;
+    await controller.initialize();
+    if (mounted)
+      setState(() {});
+  }
+
+
+  Widget _videoWidget(String url) {
+
+    controller = VideoPlayerController.network(url);
+    initController(controller);
+
+    Widget fullScreenRoutePageBuilder(BuildContext context,
+        Animation<double> animation, Animation<double> secondaryAnimation) {
+      return _buildFullScreenVideo();
+    }
+
+    void pushFullScreenWidget() {
+      final TransitionRoute<void> route = PageRouteBuilder<void>(
+        settings: RouteSettings(name: 'pic_full_route', isInitialRoute: false),
+        pageBuilder: fullScreenRoutePageBuilder,
+      );
+
+      route.completed.then((void value) {
+        controller.setVolume(0.0);
+      });
+
+      controller.setVolume(1.0);
+      Navigator.of(context).push(route);
+    }
+
+    return ConnectivityOverlay(
+      child: Column(
+        children: <Widget>[
+          //ListTile(title: Text('123'), subtitle: Text('456')),
+          GestureDetector(
+            onTap: pushFullScreenWidget,
+            child: _buildInlineVideo(),
+          ),
+        ],
+      ),
+      connectedCompleter: connectedCompleter,
+      scaffoldKey: scaffoldKey,
+    );
   }
 
   Widget _picsWidget() {
@@ -97,9 +134,9 @@ class _MainContentWidgetState extends State<MainContentWidget> {
           mainAxisSpacing: 4,
           children: statusModel.pic_urls.map<Widget>((PictureInfoModel pic){
             return GestureDetector(
-              onTap: _handlePicTap,
+              onTap: (){_handlePicTap();},
               child: CachedNetworkImage(imageUrl: pic.thumbnail != null ? pic.thumbnail : pic.thumbnail_pic,
-                fit: BoxFit.cover,
+              fit: BoxFit.cover,
               ),
             );
           }).toList(),
@@ -108,13 +145,47 @@ class _MainContentWidgetState extends State<MainContentWidget> {
   }
 
   void _handlePicTap() {
-    print('tap');
+    print('tap pic');
+  }
+
+  Widget _buildInlineVideo() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 30.0),
+      child: Center(
+        child: AspectRatio(
+            aspectRatio: 3.6 / 2,
+            child: Hero(
+              tag: controller,
+              child: VideoPlayerLoading(controller),
+            ),
+          ),
+      ),
+    );
+  }
+
+  Widget _buildFullScreenVideo() {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('123'),
+      ),
+      body: Center(
+        child: AspectRatio(
+          aspectRatio: 3.6 / 2,
+          child: Hero(
+            tag: controller,
+            child: VideoPlayPause(controller),
+          ),
+        ),
+      ),
+    );
   }
 
 }
 
 
 class PictureViewer extends StatefulWidget {
+
+  static const String routeName = '/picture_viewer_page';
 
   const PictureViewer({Key key, this.index, this.model}) : super(key:key);
 

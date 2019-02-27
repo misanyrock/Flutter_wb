@@ -91,7 +91,7 @@ class BackdropPanel extends StatelessWidget {
   }
 }
 
-// Cross fades between 'Select a Category' and 'Asset Viewer'.
+// Cross fades between 'Select a Category' and ''.
 class BackdropTitle extends AnimatedWidget {
   const BackdropTitle({
     Key key,

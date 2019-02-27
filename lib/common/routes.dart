@@ -67,6 +67,7 @@ final List<PageItem> kAllPages = _buildPageItems();
 enum RouteType {
   home,
   splash,
+  pictureViewer,
 }
 
 final Map<RouteType,String> routeMap = {
